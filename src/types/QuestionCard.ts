@@ -1,3 +1,5 @@
+import type { Difficulty } from '@/enums/Question'
+
 export type QuestionCard = {
   question: string
   answers: string[]
@@ -7,10 +9,10 @@ export type QuestionCard = {
   totalQuestions: number
 }
 
-export type Difficulty = 'easy' | 'medium' | 'hard'
 export type QuestionType = 'multiple' | 'boolean'
 
-export interface QuestionsState {
+// question from API
+export interface Question {
   type: QuestionType
   difficulty: Difficulty
   category: string
@@ -18,3 +20,5 @@ export interface QuestionsState {
   correct_answer: string
   incorrect_answers: string[]
 }
+
+export type QuestionState = Question & { answers: string[] }

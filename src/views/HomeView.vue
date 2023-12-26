@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { fetchQuizQuestions } from '@/API'
 import QuestionCard from '@/components/QuestionCard.vue'
-import type { QuestionsState } from '@/types/QuestionCard'
+import type { QuestionState } from '@/types/QuestionCard'
+import { Difficulty } from '@/enums/Question'
 
 import { ref } from 'vue'
 </script>
@@ -27,7 +29,7 @@ import { ref } from 'vue'
 const TOTAL_QUESTIONS = 10
 
 const loading = ref(false)
-const questions = ref([] as QuestionsState[])
+const questions = ref([] as QuestionState[])
 const number = ref(0)
 const userAnswers = ref([])
 const score = ref(0)
@@ -44,4 +46,6 @@ const nextQuestion = () => {
 const checkAnswer = () => {
   console.log('checkAnswer')
 }
+
+console.log(fetchQuizQuestions(TOTAL_QUESTIONS, Difficulty.EASY))
 </script>
