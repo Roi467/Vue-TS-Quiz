@@ -10,7 +10,7 @@ const props = defineProps<QuestionCard>()
   <p>{{ props.question }}</p>
   <div>
     <div v-for="(answer, idx) in props.answers" :key="idx">
-      <button @click="props.callback">
+      <button @click="props.callback(answer)">
         {{ answer }}
       </button>
     </div>

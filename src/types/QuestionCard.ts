@@ -4,7 +4,7 @@ export type QuestionCard = {
   question: string
   answers: string[]
   callback: any
-  userAnswer: string | undefined
+  userAnswer: AnswerObject | undefined
   questionNr: number
   totalQuestions: number
 }
@@ -22,3 +22,10 @@ export interface Question {
 }
 
 export type QuestionState = Question & { answers: string[] }
+
+export type AnswerObject = {
+  question: string
+  answer: string
+  correct: boolean
+  correctAnswer: string
+}
