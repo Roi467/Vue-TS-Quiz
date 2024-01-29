@@ -6,13 +6,21 @@ const props = defineProps<QuestionCard>()
 </script>
 
 <template>
-  <p class="number">Question: {{ props.questionNr / props.totalQuestions }}</p>
-  <p>{{ props.question }}</p>
-  <div>
-    <div v-for="(answer, idx) in props.answers" :key="idx">
-      <button @click="props.callback(answer)">
-        {{ answer }}
-      </button>
+  <div class="question-card">
+    <p class="number">Question: {{ props.questionNr / props.totalQuestions }}</p>
+    <p>{{ props.question }}</p>
+    <div>
+      <div v-for="(answer, idx) in props.answers" :key="idx">
+        <button
+          @click="props.callback(answer)"
+          :class="{
+            correct: userAnswer?.correctAnswer === answer,
+            clicked: userAnswer?.answer === answer
+          }"
+        >
+          {{ answer }}
+        </button>
+      </div>
     </div>
   </div>
 </template>

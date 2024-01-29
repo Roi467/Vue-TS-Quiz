@@ -1,3 +1,104 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
+  background-image: url('../images/background.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#app > p {
+    color: #fff
+}
+
+h1 {
+    background-image: linear-gradient(180deg, #fff, #87f1ff);
+    background-size: 100%;
+    background-clip: text;
+
+    --webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    filter: drop-shadow(2px 2px #0085a3);
+    font-size: 70px;
+    text-align: center;
+    margin: 20px;
+}
+
+.score {
+    color: #fff;
+    text-align: center;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.start, .next {
+    cursor: pointer;
+    background: linear-gradient(180deg, #fff, #ffcc91);
+    border: 2px solid #d38558;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.25);
+    border-radius: 10px;
+    height: 40px;
+    margin: 20px 0;
+    padding: 0 40px;
+}
+
+.start {
+    max-width: 200px;
+}
+
+.question-card {
+    max-width: 1100px;
+    background: #ebfeff;
+    border-radius: 10px;
+    border: 2px solid #0085a3;
+    padding: 20px;
+    box-shadow: 0px 5px 10 rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+.question-card p {
+    font-size: 1rem;
+}
+
+.question-card button {
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.8rem;
+    width: 100%;
+    height: 40px;
+    margin: 5px 0;
+    border: 3px solid #fff;
+    color: #fff;
+    box-shadow: 1px 2px 0px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    text-shadow: 0px 1px 0px rgba(0,0,0,0.25);
+    background: var(--question-card-btn-bg, linear-gradient(90deg, #56ccff, #6eafb4));
+
+    transition: all 0.3ms;
+}
+
+.question-card button.clicked:not(.correct) {
+    --question-card-btn-bg: linear-gradient(90deg, #ff5656, #c16868);
+}
+
+.question-card button.correct {
+    --question-card-btn-bg: linear-gradient(90deg, #56ffa4, #59bc86);
+}
+
+.question-card button:hover {
+    opacity: 0.8;
 }
