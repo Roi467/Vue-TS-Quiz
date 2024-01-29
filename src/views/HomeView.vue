@@ -106,7 +106,7 @@ const checkAnswer = (answer: string): void => {
   const correct = currentQuestion.correct_answer === answer
 
   if (correct) {
-    score.value = score.value++
+    score.value = score.value + 1
   }
 
   userAnswers.value.push({

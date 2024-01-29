@@ -7,7 +7,7 @@ const props = defineProps<QuestionCard>()
 
 <template>
   <div class="question-card">
-    <p class="number">Question: {{ props.questionNr / props.totalQuestions }}</p>
+    <p class="number">Question: {{ props.questionNr }} / {{ props.totalQuestions }}</p>
     <p>{{ props.question }}</p>
     <div>
       <div v-for="(answer, idx) in props.answers" :key="idx">
